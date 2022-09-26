@@ -179,11 +179,11 @@ else:
 ```
 출력결과
 ```python
-문자를 입력하세요 : RiGhT
+문자를 입력하세요 :RiGhT
 right
 ```
 ```python
-문자를 입력하세요 : riGhT
+문자를 입력하세요 :riGhT
 RIGHT
 ```
 
