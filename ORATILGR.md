@@ -42,9 +42,9 @@ SELECT -> 원하는 결과만 출력/PROJECTION한다.
 출력결과
 ```oracle
 DEPTNO	MAX(SAL)	MIN(SAL)	MEDIAN(SAL)	ROUND(AVG(SAL),-1)	SUM(SAL)
-10	5000	        1300	        2450	        2920	            8750
-20	3000	        800	        2987.5	        2310	            13875
-30	2850	        950	        1375	        1570	            9400
+10	5000	        1300	        2450	        2920	                8750
+20	3000	        800	        2987.5	        2310	                13875
+30	2850	        950	        1375	        1570	                9400
 ```
 - GRORP BY로 인해 부서번호(DEPTNO)로 묶인 것을 볼 수 있다.
 
@@ -63,9 +63,9 @@ DEPTNO	MAX(SAL)	MIN(SAL)	MEDIAN(SAL)	ROUND(AVG(SAL),-1)	SUM(SAL)
 출력결과
 ```oracle
 DEPTNO	MAX(SAL)	MIN(SAL)	MEDIAN(SAL)	ROUND(AVG(SAL),-1)	SUM(SAL)
-20	3000	        800	        2987.5	        2310	            13875
-30	2850	        950	        1375	        1570	            9400
-10	5000	        1300	        2450	        2920	            8750
+20	3000	        800	        2987.5	        2310	                13875
+30	2850	        950	        1375	        1570	                9400
+10	5000	        1300	        2450	        2920	                8750
 ```
 > ROUND(컬럼명 , 숫자) : `소숫점 이하 숫자 자리`만큼 반올림해서 출력해주는 함수
 >> EX) 만약 결과값이 1234.5678일때 ROUND( 컬럼명, 2) 였다면, 1234.57로 표시해준다.<br/>
@@ -85,8 +85,8 @@ DEPTNO	MAX(SAL)	MIN(SAL)	MEDIAN(SAL)	ROUND(AVG(SAL),-1)	SUM(SAL)
 출력결과
 ```oracle
 DEPTNO	ROUND(AVG(SAL),2)	SUM(SAL)
-20	2312.5	            13875
-10	2916.67	            8750
+20	2312.5	                13875
+10	2916.67	                8750
 ```
 
 <br/>
@@ -182,9 +182,9 @@ WARD	7521	SALESMAN	1250	30
 출력결과
 ```oracle
 JOB	        LTRIM(JOB,'A')	SAL	LTRIM(SAL,1)
-MANAGER	        MANAGER	2450	2450
+MANAGER	        MANAGER	        2450	2450
 PRESIDENT	PRESIDENT	5000	5000
-CLERK	        CLERK	1300	300
+CLERK	        CLERK	        1300	300
 ```
 <br/>
 
