@@ -182,3 +182,25 @@ GROUP BY DEPTNO, MGR;
 - 다만, UNION ALL의 경우, __집계 시 NULL로 쓰이는 컬럼은 반드시 NULL이라고 명시__ 해주어야 SQL문이 정삭 작동된다.
 - 또한 같은 결과지만 UNION ALL의 쿼리 문이 훨씬 길다.
 - 따라서 GROUPING SETS를 활용함으로써 더 효율적으로 쿼리를 실행시킬 수 있다.
+
+<br/>
+
+#### UNION ALL과 GROUPING SETS 정리
+```oracle
+   1) GROUP BY GROUPING SETS(A,B,C)  =  GROUP BY  A  UNION ALL     
+                                        GROUP BY  B  UNION ALL 
+                                        GROUP BY  C  UNION ALL 
+
+                                      
+   2) GROUP BY GROUPING SETS(A,B,(B,C)) =  GROUP BY  A  UNION ALL   
+                                           GROUP BY  B  UNION ALL 
+                                           GROUP BY  B,C
+
+                                           
+   3) GROUP BY GROUPING SETS((A,B,C)) =  GROUP BY A,B,C 
+    
+
+   4) GROUP BY GROUPING SETS(A,(B),()) =  GROUP BY A   UNION ALL   
+                                          GROUP BY B   UNION ALL   
+                                          GROUP BY ()
+```
