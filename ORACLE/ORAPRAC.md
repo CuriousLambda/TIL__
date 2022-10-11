@@ -24,7 +24,7 @@ WHERE DEPARTMENT_ID = 90;
 ```
 출력결과
 ```oracle
-사원명	        입 사 일	연 봉	부서코드
+사원명	        입 사 일	연 봉	    부서코드
 Steven King	03/06/17	288000원	90
 Neena Kochhar	05/09/21	204000원	90
 Lex De Haan	01/01/13	204000원	90
@@ -193,25 +193,25 @@ WHERE LAST_NAME LIKE '%n';
 ```
 출력결과
 ```oracel
-EMPLOYEE_ID	NAME	        LENGTH
+EMPLOYEE_ID	NAME	            LENGTH
 102	        LexDe Haan	        10
 105	        DavidAustin	        11
 110	        JohnChen	        8
 112	        Jose ManuelUrman	16
-123	        ShantaVollman	    13
-130	        MozheAtkinson	    13
-132	        TJOlson	            7
-133	        JasonMallin	    11
-151	        DavidBernstein	14
+123	        ShantaVollman	        13
+130	        MozheAtkinson	        13
+132	        TJOlson	                7
+133	        JasonMallin	        11
+151	        DavidBernstein	        14
 153	        ChristopherOlsen	16
-158	        AllanMcEwen	    11
-160	        LouiseDoran	    11
-175	        AlyssaHutton	    12
-177	        JackLivingston	    14
-179	        CharlesJohnson	    14
-182	        MarthaSullivan	    14
-194	        SamuelMcCain	    12
-200	        JenniferWhalen	    14
+158	        AllanMcEwen	        11
+160	        LouiseDoran	        11
+175	        AlyssaHutton	        12
+177	        JackLivingston	        14
+179	        CharlesJohnson	        14
+182	        MarthaSullivan	        14
+194	        SamuelMcCain	        12
+200	        JenniferWhalen	        14
 201	        MichaelHartstein	16
 ```
 - 앞서 보았듯이, 두 컬럼을 합칠 때는 CONCAT이나 연결문자열(||)을 사용할 수 있다.
@@ -229,36 +229,36 @@ WHERE EXTRACT(YEAR FROM HIRE_DATE) >= 2007;
 출력결과
 ```oracle
 LAST_NAME	TO_CHAR(HIRE_DATE,'DD-MON-YYYY')
-Ernst	    21-5월 -2007
+Ernst	        21-5월 -2007
 Lorentz 	07-2월 -2007
-Popp	    07-12월-2007
+Popp	        07-12월-2007
 Colmenares	10-8월 -2007
-Mourgos	    16-11월-2007
-Landry	    14-1월 -2007
-Markle	    08-3월 -2008
-Olson	    10-4월 -2007
-Gee	1   2-12월-2007
+Mourgos	        16-11월-2007
+Landry	        14-1월 -2007
+Markle	        08-3월 -2008
+Olson	        10-4월 -2007
+Gee	            12-12월-2007
 Philtanker	06-2월 -2008
 Cambrault	15-10월-2007
-Zlotkey	    29-1월 -2008
-Tuvault	    23-11월-2007
-Greene	    19-3월 -2007
-Marvins	    24-1월 -2008
-Lee	    23-2월 -2008
-Ande	    24-3월 -2008
-Banda	    21-4월 -2008
-Smith	    23-2월 -2007
-Bates	    24-3월 -2007
-Kumar	    21-4월 -2008
-Grant	    24-5월 -2007
-Johnson	    04-1월 -2008
+Zlotkey	        29-1월 -2008
+Tuvault	        23-11월-2007
+Greene	        19-3월 -2007
+Marvins	            24-1월 -2008
+Lee	        23-2월 -2008
+Ande	        24-3월 -2008
+Banda	        21-4월 -2008
+Smith	        23-2월 -2007
+Bates	        24-3월 -2007
+Kumar	        21-4월 -2008
+Grant	        24-5월 -2007
+Johnson	        04-1월 -2008
 Sullivan	21-6월 -2007
-Geoni	    03-2월 -2008
-Cabrio	    07-2월 -2007
-Perkins	    19-12월-2007
-Jones	    17-3월 -2007
+Geoni	        03-2월 -2008
+Cabrio	        07-2월 -2007
+Perkins	        19-12월-2007
+Jones	        17-3월 -2007
 OConnell	21-6월 -2007
-Grant	    13-1월 -2008
+Grant	        13-1월 -2008
 ```
 - HIRE_DATE를 TO_CHAR를 통해 원하는 형태('DD-MON-YYYY')의 문자열로 바꾸어주고
 - EXTRACT를 사용해서 HIRE_DATE에서 연도를 추출했다.
@@ -289,12 +289,12 @@ ORDER BY 3, 2;
 ```
 출력결과
 ```oracle
-사원번호	사원명	    구분
-100	King	    고급
-102	De Haan	    중급
+사원번호	사원명	        구분
+100	King	        고급
+102	De Haan	        중급
 201	Hartstein	중급
-101	Kochhar	    중급
-202	Fay	    초급
+101	Kochhar	        중급
+202	Fay	        초급
 ```
 - 이전에 DECODE와 CASE WHEN을 같이 다루었듯이 서로 비슷한 기능을 한다.
 - DECODE는 첫번째 인자가 두번째 인자와 같은지 아닌지 비교만 가능했기에, SIGN함수를 통해 값을 비교할 수 있도록 바꿔주었다.
