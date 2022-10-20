@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>게시판 글 작성화면</h1>
+
+    <!-- post방식에서는 꼭 csrf_token 써주어야 한다. -->
+    <!-- 작성 버튼을 누르면 server로 전송되야 하니까 form을 써준다. -->
+    <!-- 즉, 서버에 전송을 해서 index.html에 내용이 추가가 되어야 하니까 form이 필요 -->
+    <form action = "/insertres/" method = "post">{% csrf_token %}
+        <!-- 작성 버튼 누르면 submit이 되는데, 그 때 root/insertres/로 가지라는 거야 -->
+        <!-- 그러고 나서 views.py를 한번 봐봐 -->
+    <table border = "1">
+        <tr>
+            <th>작성자</th>
+            <td><input type = "text" name = "myname"></td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td><input type = "text" name = "mytitle"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td>
+                <textarea cols = "60" rows = "10" name = "mycontent"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan = "2" align = "right">
+                <input type = "button" onclick = "" value = "취소">
+                <input type = "submit" value = "작성">
+            </td>
+        </tr>
+    </table>
+    </form>
+    
+</body>
+</html>
