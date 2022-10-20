@@ -8,6 +8,9 @@ def index(request):
     # render(request, template_name, context=None, content_type=None, status=None, using=None)
     # index.html를 리턴? MyBoard.objects.all()값을 list라는 키값에 담아서 리턴
 
+def detail(request, id):
+    return render(request, "detail.html", {"dto" : MyBoard.objects.get(id=id)})
+
 def insert_form(request):
     return render(request, "insert.html")
 
