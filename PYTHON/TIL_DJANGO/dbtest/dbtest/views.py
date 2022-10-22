@@ -24,3 +24,12 @@ def insert_res(request):
         return redirect("index") #원래는 /insertres/로 가야되는데 redirect해서 name이 index인 url로 가라는거임.
     else:
         return redirect("insertform") # 바뀐게 없으면 아까 게시판 글 작성 화면으로 돌아가라는 것.
+
+
+def delete(request, id):
+    result = MyBoard.objects.filter(id=id).delete()
+    print(result)
+    if result[0]:
+        return redirect("index")
+    else:
+        return redirect("/detail/{id}")

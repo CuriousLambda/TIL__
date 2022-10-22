@@ -23,4 +23,7 @@ urlpatterns = [
     path("detail/<int:id>", views.detail, name = "detail"),
     path("insertform/", views.insert_form, name = "insert"),
     path("insertres/", views.insert_res),
+     path("updateform/<int:id>", views.update_form, name = "updateform"),
+    path("updateres/", views.update_res),
+    path("delete/<int:id>", views.delete, name = "delete"),
 ]
