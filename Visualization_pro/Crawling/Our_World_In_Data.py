@@ -16,7 +16,22 @@ sleep(3)
 
 soup = BeautifulSoup(driver.page_source, "html.parser")
 
-contries = soup.find_all("td", class_ = "entity sorted")
+# table = driver.find_element_class_name("tab clickable")
+# print(table)
+
+
+table_button = soup.find_all("li", class_ = "tab clickable")
+'''
+print(next(table_button[1].children))
+next(table_button[1].children).click()
+'''
+print((table_button))
+
+
+table_button = soup.find("div", class_ = "tableTab")
+print(table_button)
+
+contries = soup.find("td", class_ = "entity sorted")
 print(contries)
 
 
