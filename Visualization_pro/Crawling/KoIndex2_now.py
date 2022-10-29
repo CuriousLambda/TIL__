@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # 사이트 안띄우고 바로 결과 출력
 
@@ -28,7 +29,119 @@ for i in tdata:
     # print(emission)
     list_ems.append(emission)
 
+print('총 탄소배출량')
 print(list_ems)
+print('\n')
+
+
+## 순배출량 리스트
+net_ems = soup.select("#tr_146404_2 > td")
+
+list_net = []
+
+for i in net_ems:
+    net = i.get_text()
+    list_net.append(net)
+
+print('순 탄소배출량')
+print(list_net)
+print('\n')
+
+
+## 에너지 부분 탄소배출량
+energy_ems = soup.select("#tr_146404_3 > td")
+
+list_energy = []
+
+for i in energy_ems:
+    energy = i.get_text()
+    list_energy.append(energy)
+
+print('에너지 부분 탄소배출량')
+print(list_energy)
+print('\n')
+
+
+
+## 산업공정 탄소배출량
+indus_ems = soup.select("#tr_146404_4 > td")
+
+list_indus = []
+
+for i in indus_ems:
+    indus = i.get_text()
+    list_indus.append(indus)
+
+print('산업공정 부분 탄소배출량')
+print(list_indus)
+print('\n')
+
+
+
+## 농업 탄소배출량
+agri_ems = soup.select("#tr_146404_5 > td")
+
+list_agri = []
+
+for i in agri_ems:
+    agri = i.get_text()
+    list_agri.append(agri)
+
+print('농업 부분 탄소배출량')
+print(list_agri)
+print('\n')
+
+
+
+
+## LULUCF 탄소배출량
+lulu_ems = soup.select("#tr_146404_6 > td")
+
+list_lulu = []
+
+for i in lulu_ems:
+    lulu = i.get_text()
+    list_lulu.append(lulu)
+
+print('LULUCF 부분 탄소배출량')
+print(list_lulu)
+print('\n')
+
+
+
+
+## 폐기물 탄소배출량
+waste_ems = soup.select("#tr_146404_7 > td")
+
+list_waste = []
+
+for i in waste_ems:
+    waste = i.get_text()
+    list_waste.append(waste)
+
+print('폐기물 부분 탄소배출량')
+print(list_waste)
+print('\n')
+
+
+
+
+## 총 배출량 증감율
+ems_inde = soup.select("#tr_146404_8 > td")
+
+list_incdec = []
+
+for i in ems_inde:
+    incdec = i.get_text()
+    list_incdec.append(incdec)
+
+print('총 탄소배출량 증감율')
+print(list_incdec)
+print('\n')
+
+
+
+
 
 
 
@@ -53,5 +166,36 @@ del list_year[0]
 print(list_year)
 
 
-result =list(zip(list_year, list_ems))
-print(result)
+year_ems =list(zip(list_year, list_ems))
+print(year_ems)
+
+year_net =list(zip(list_year, list_net))
+print(year_net)
+
+year_energy =list(zip(list_year, list_energy))
+print(year_energy)
+
+year_indus =list(zip(list_year, list_indus))
+print(year_indus)
+
+year_agri =list(zip(list_year, list_agri))
+print(year_agri)
+
+year_lulu =list(zip(list_year, list_lulu))
+print(year_lulu)
+
+year_waste =list(zip(list_year, list_waste))
+print(year_waste)
+
+year_incdec =list(zip(list_year, list_incdec))
+print(year_incdec)
+
+
+
+data = {'year' : list_year, 'total_ems' : list_ems, 'net_ems' : list_net, 'energy_ems' : list_energy, 'indus_ems' : list_indus, 'agri_ems' : list_agri, 'lulu_ems' : list_lulu, 'waste_ems' : list_waste, 'ems_incdec' : list_incdec}
+
+df = pd.DataFrame(data)
+df.set_index('year', inplace = True)
+print(df)
+
+df.to_csv("./Visualization_pro/ANALYSIS/Kor_emission.csv")

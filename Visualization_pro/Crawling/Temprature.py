@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import pandas as pd
 
 ## 연도별 평균 기온( 연 전체, 봄, 여름, 가을, 겨울) 표 url
 url = "https://www.index.go.kr/strata/jsp/showStblGams3.jsp?stts_cd=140001&idx_cd=1400&freq=Y&period=1973:2021"
@@ -129,3 +129,10 @@ print("\n")
 
 print("연도별 겨울 평균 기온")
 print(result_win)
+
+data = {'year' : list_year, 'avg_temp' : list_avg, 'spr_temp' :  list_spr, 'sum_temp' : list_sum, 'fall_temp' : list_fall, 'win_temp' : list_win}
+df = pd.DataFrame(data)
+df.set_index('year', inplace=True)
+print(df)
+
+df.to_csv("./Visualization_pro/ANALYSIS/Kor_Temp.csv")
