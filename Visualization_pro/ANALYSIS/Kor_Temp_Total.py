@@ -73,17 +73,6 @@ print(np.corrcoef(Fall_Temp, Total_Ems))
 # -0.007 - 선형관계 모호함
 print(np.corrcoef(Winter_Temp, Total_Ems))
 
-# 0.38 - 양의 선형관계
-print(np.corrcoef(Avg_Temp, Net_Ems))
-# 0.40 - 양의 선형관계
-print(np.corrcoef(Spring_Temp, Net_Ems))
-# 0.46 - 양의 선형관계
-print(np.corrcoef(Summer_Temp, Net_Ems))
-# 0.26 - 약한 양의 선형관계
-print(np.corrcoef(Fall_Temp, Net_Ems))
-# -0.005 - 선형관계 모호함
-print(np.corrcoef(Winter_Temp, Net_Ems))
-
 
 
 fig = plt.figure(figsize=(15, 10))
@@ -92,36 +81,114 @@ plt.rcParams["font.family"] = "Malgun Gothic"
 
 ax01 = fig.add_subplot(1, 2, 1)
 
-ax01.plot(year, avg, color = 'red', marker = 'o')
-ax01.plot(year, spring, color = 'violet', marker = 'o')
-ax01.plot(year, summer, color = 'limegreen', marker = 'o')
-ax01.plot(year, fall, color = 'brown', marker = 'o')
-ax01.plot(year, winter, color = 'dodgerblue', marker = 'o')
-
-plt.title("계절별 평균 기온 변화", fontsize = 20)
-
-
-
-
-
-ax02 = fig.add_subplot(2, 2, 2)
-
-ax02.axhline(avg_mean, color = "mediumspringgreen", linewidth = "5")
-ax02.plot(year, avg, color = "red", marker = 'o')
-plt.title("연도별 평균 기온변화", fontsize = 20)
-
-
-
-line = np.polyfit(Avg_Temp, Total_Ems, 1)
+line = np.polyfit(Total_Ems, Avg_Temp, 1)
 p = np.poly1d(line)
-print(line)
 
-ax03 = fig.add_subplot(2, 2, 4)
-ax03.scatter(Avg_Temp, Total_Ems)
-ax03.plot(Avg_Temp, p(Avg_Temp), "m:*")
-ax03.set_yticks(list(range(200, 900, 100)))
-ax03.set_ylim(150, 800)
-plt.title("평균 기온과 총 탄소 배출량 추세선", fontsize = 20)
+ax01.scatter(total, avg, color = 'red')
+ax01.plot(Total_Ems, p(Total_Ems), "m:*")
+ax01.set_xticks(list(range(200, 900, 100)))
+ax01.set_xlim(150, 800)
+plt.xlabel('탄소 배출량')
+plt.ylabel('평균 기온')
+plt.title("총 탄소 배출량과 평균 기온 추세선", fontsize = 20)
+
+
+
+
+ax02 = fig.add_subplot(2, 4, 3)
+
+line02 = np.polyfit(Total_Ems, Spring_Temp, 1)
+p = np.poly1d(line02)
+
+ax02.scatter(total, spring, color = 'violet')
+ax02.plot(Total_Ems, p(Total_Ems), "m:*")
+ax02.set_xticks(list(range(200, 900, 100)))
+ax02.set_xlim(150, 800)
+plt.xlabel('탄소 배출량')
+plt.ylabel('봄 평균 기온')
+plt.title("(총 탄소배출, 봄)", fontsize = 13)
+
+
+
+
+ax03 = fig.add_subplot(2, 4, 4)
+
+line03 = np.polyfit(Total_Ems, Summer_Temp, 1)
+p = np.poly1d(line03)
+
+ax03.scatter(total, summer, color = 'limegreen')
+ax03.plot(Total_Ems, p(Total_Ems), "m:*")
+ax03.set_xticks(list(range(200, 900, 100)))
+ax03.set_xlim(150, 800)
+plt.xlabel('탄소 배출량')
+plt.ylabel('여름 평균 기온')
+plt.title("(총 탄소배출, 여름)", fontsize = 13)
+
+
+
+
+ax04 = fig.add_subplot(2, 4, 7)
+
+line04 = np.polyfit(Total_Ems, Fall_Temp, 1)
+p = np.poly1d(line04)
+
+ax04.scatter(total, fall, color = 'brown')
+ax04.plot(Total_Ems, p(Total_Ems), "m:*")
+ax04.set_xticks(list(range(200, 900, 100)))
+ax04.set_xlim(150, 800)
+plt.xlabel('탄소 배출량')
+plt.ylabel('가을 평균 기온')
+plt.title("(총 탄소배출, 가을)", fontsize = 13)
+
+
+
+
+ax05 = fig.add_subplot(2, 4, 8)
+
+line05 = np.polyfit(Total_Ems, Winter_Temp, 1)
+p = np.poly1d(line05)
+
+ax05.scatter(total, winter, color = 'dodgerblue')
+ax05.plot(Total_Ems, p(Total_Ems), "m:*")
+ax05.set_xticks(list(range(200, 900, 100)))
+ax05.set_xlim(150, 800)
+plt.xlabel('탄소 배출량')
+plt.ylabel('겨울 평균 기온')
+plt.title("(총 탄소배출, 겨울)", fontsize = 13)
+
+
+
+
+
+# ax01.plot(year, spring, color = 'violet', marker = 'o')
+# ax01.plot(year, summer, color = 'limegreen', marker = 'o')
+# ax01.plot(year, fall, color = 'brown', marker = 'o')
+# ax01.plot(year, winter, color = 'dodgerblue', marker = 'o')
+
+# plt.title("계절별 평균 기온 변화", fontsize = 20)
+
+
+
+
+
+# ax02 = fig.add_subplot(2, 2, 2)
+
+# ax02.axhline(avg_mean, color = "mediumspringgreen", linewidth = "5")
+# ax02.plot(year, avg, color = "red", marker = 'o')
+# plt.title("연도별 평균 기온변화", fontsize = 20)
+
+
+
+# line = np.polyfit(Avg_Temp, Total_Ems, 1)
+# p = np.poly1d(line)
+# print(line)
+
+# ax03 = fig.add_subplot(2, 2, 4)
+# ax03.scatter(Avg_Temp, Total_Ems)
+# ax03.plot(Avg_Temp, p(Avg_Temp), "m:*")
+# ax03.set_yticks(list(range(200, 900, 100)))
+# ax03.set_ylim(150, 800)
+# plt.title("평균 기온과 총 탄소 배출량 추세선", fontsize = 20)
 
 
 

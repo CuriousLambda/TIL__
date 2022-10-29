@@ -1,7 +1,5 @@
-from tkinter import font
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 
@@ -14,10 +12,6 @@ df_temp = pd.read_csv('./Kor_Temp.csv')[17:47]
 df_ems.info()
 df_temp.info()
 
-
-## 각 데이터프레임의 기술통계 확인
-print(df_ems.describe())
-print(df_temp.describe())
 
 
 ## 사용할 데이터 만들기
@@ -64,39 +58,72 @@ Ems_Incdec = df_ems['ems_incdec']
 
 
 
+## 피어슨 상관계수로 상관성 파악하기
+
+# 0.38 - 양의 선형관계
+print(np.corrcoef(Avg_Temp, Total_Ems))
+# 0.41 - 양의 선형관계
+print(np.corrcoef(Spring_Temp, Total_Ems))
+# 0.44 - 양의 선형관계
+print(np.corrcoef(Summer_Temp, Total_Ems))
+# 0.27 - 약한 양의 선형관계
+print(np.corrcoef(Fall_Temp, Total_Ems))
+# -0.007 - 선형관계 모호함
+print(np.corrcoef(Winter_Temp, Total_Ems))
+
+
+# 0.38 - 양의 선형관계
+print(np.corrcoef(Avg_Temp, Net_Ems))
+# 0.40 - 양의 선형관계
+print(np.corrcoef(Spring_Temp, Net_Ems))
+# 0.46 - 양의 선형관계
+print(np.corrcoef(Summer_Temp, Net_Ems))
+# 0.26 - 약한 양의 선형관계
+print(np.corrcoef(Fall_Temp, Net_Ems))
+# -0.005 - 선형관계 모호함
+print(np.corrcoef(Winter_Temp, Net_Ems))
+
+
+
+
 fig = plt.figure(figsize=(15, 10))
 plt.rcParams["font.family"] = "Malgun Gothic"
 
 
 ax01 = fig.add_subplot(1, 2, 1)
 
-ax01.plot(year, avg, color = 'red', marker = 'o')
+ax01.plot(avg, total, color = 'red', marker = 'o')
 ax01.plot(year, spring, color = 'violet', marker = 'o')
 ax01.plot(year, summer, color = 'limegreen', marker = 'o')
 ax01.plot(year, fall, color = 'brown', marker = 'o')
 ax01.plot(year, winter, color = 'dodgerblue', marker = 'o')
 
-plt.legend(('AVERAGE', 'SPRING', 'SUMMER', 'FALL', 'WINTER'), bbox_to_anchor = (1.0, 0.82))
 plt.title("계절별 평균 기온 변화", fontsize = 20)
 
 
 
 
 
-ax02 = fig.add_subplot(1, 2, 2)
+ax02 = fig.add_subplot(2, 2, 2)
+
+ax02.axhline(avg_mean, color = "mediumspringgreen", linewidth = "5")
+ax02.plot(year, avg, color = "red", marker = 'o')
+plt.title("연도별 평균 기온변화", fontsize = 20)
 
 
-ax02.plot(year_ems, total, color = "red", marker = 'o')
-ax02.plot(year_ems, net, color = "mediumspringgreen", marker = 'o')
-ax02.plot(year_ems, energy, color = "cornflowerblue", marker = 'o')
-ax02.plot(year_ems, industry, color = "dimgrey", marker = 'o')
-ax02.plot(year_ems, agriculture, color = "gold", marker = 'o')
-ax02.plot(year_ems, lulucf, color = "darkorchid", marker = 'o')
-ax02.plot(year_ems, waste, color = "peru", marker = 'o')
-ax02.plot(year_ems, incdec, color = "lightcoral", marker = 'o')
 
-plt.legend(('TOTAL', 'NET', 'ENERGY', 'INDUSTRY', 'AGRICULTURE', 'LULUCF', 'WASTE', 'INCDEC'), loc = 'best', ncol = 2)
-plt.title("분야별 탄소배출량 추이", fontsize = 20)
+line = np.polyfit(Avg_Temp, Total_Ems, 1)
+p = np.poly1d(line)
+print(line)
+
+ax03 = fig.add_subplot(2, 2, 4)
+ax03.scatter(Avg_Temp, Total_Ems)
+ax03.plot(Avg_Temp, p(Avg_Temp), "m:*")
+ax03.set_yticks(list(range(200, 900, 100)))
+ax03.set_ylim(150, 800)
+plt.title("평균 기온과 총 탄소 배출량 추세선", fontsize = 20)
+
+
 
 
 

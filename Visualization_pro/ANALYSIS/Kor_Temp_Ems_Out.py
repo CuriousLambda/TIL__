@@ -1,7 +1,5 @@
-from tkinter import font
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 
@@ -14,10 +12,6 @@ df_temp = pd.read_csv('./Kor_Temp.csv')[17:47]
 df_ems.info()
 df_temp.info()
 
-
-## 각 데이터프레임의 기술통계 확인
-print(df_ems.describe())
-print(df_temp.describe())
 
 
 ## 사용할 데이터 만들기
@@ -64,39 +58,27 @@ Ems_Incdec = df_ems['ems_incdec']
 
 
 
+
+
+
 fig = plt.figure(figsize=(15, 10))
 plt.rcParams["font.family"] = "Malgun Gothic"
 
 
 ax01 = fig.add_subplot(1, 2, 1)
 
-ax01.plot(year, avg, color = 'red', marker = 'o')
-ax01.plot(year, spring, color = 'violet', marker = 'o')
-ax01.plot(year, summer, color = 'limegreen', marker = 'o')
-ax01.plot(year, fall, color = 'brown', marker = 'o')
-ax01.plot(year, winter, color = 'dodgerblue', marker = 'o')
-
-plt.legend(('AVERAGE', 'SPRING', 'SUMMER', 'FALL', 'WINTER'), bbox_to_anchor = (1.0, 0.82))
-plt.title("계절별 평균 기온 변화", fontsize = 20)
-
-
+ax01.axhline(avg_mean, color = "mediumspringgreen", linewidth = "5")
+ax01.plot(year, avg, color = "red", marker = 'o')
+plt.xlabel("년도")
+plt.ylabel("기온")
+plt.title("연도별 평균 기온변화", fontsize = 20)
 
 
 
 ax02 = fig.add_subplot(1, 2, 2)
 
-
-ax02.plot(year_ems, total, color = "red", marker = 'o')
-ax02.plot(year_ems, net, color = "mediumspringgreen", marker = 'o')
-ax02.plot(year_ems, energy, color = "cornflowerblue", marker = 'o')
-ax02.plot(year_ems, industry, color = "dimgrey", marker = 'o')
-ax02.plot(year_ems, agriculture, color = "gold", marker = 'o')
-ax02.plot(year_ems, lulucf, color = "darkorchid", marker = 'o')
-ax02.plot(year_ems, waste, color = "peru", marker = 'o')
-ax02.plot(year_ems, incdec, color = "lightcoral", marker = 'o')
-
-plt.legend(('TOTAL', 'NET', 'ENERGY', 'INDUSTRY', 'AGRICULTURE', 'LULUCF', 'WASTE', 'INCDEC'), loc = 'best', ncol = 2)
-plt.title("분야별 탄소배출량 추이", fontsize = 20)
+ax02.boxplot(avg)
+plt.title("평균 기온 박스플롯", fontsize = 20)
 
 
 
