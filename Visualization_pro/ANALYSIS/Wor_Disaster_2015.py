@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-##### (1990 ~ 2019) 자연재해 종류 별 사망자 수와 탄소배출량 관계 #####
+##### 2015년 이후 자연재해 종류별 사망자 수와 탄소배출량 관계 #####
 
 
 
@@ -13,58 +13,57 @@ df_WorEms = pd.read_csv('../CSV/World-Carbon-Emission.csv')
 
 
 ## 사용할 데이터 만들기
-year = df_death[['Year']]
-drought = df_death[['Number of deaths from drought']]
-earthquake = df_death[['Number of deaths from earthquakes']]
-disaster = df_death[['Number of deaths from disasters']]
-volcanic = df_death[['Number of deaths from volcanic activity']]
-flood = df_death[['Number of deaths from floods']]
-storm = df_death[['Number of deaths from storms']]
-wildfire = df_death[['Number of deaths from wildfires']]
-ex_temp = df_death[['Number of deaths from extreme temperatures']]
-total_death = df_death[['Total_Death']]
+year = df_death[['Year']].loc[25:]
+drought = df_death[['Number of deaths from drought']].loc[25:]
+earthquake = df_death[['Number of deaths from earthquakes']].loc[25:]
+disaster = df_death[['Number of deaths from disasters']].loc[25:]
+volcanic = df_death[['Number of deaths from volcanic activity']].loc[25:]
+flood = df_death[['Number of deaths from floods']].loc[25:]
+storm = df_death[['Number of deaths from storms']].loc[25:]
+wildfire = df_death[['Number of deaths from wildfires']].loc[25:]
+ex_temp = df_death[['Number of deaths from extreme temperatures']].loc[25:]
+total_death = df_death[['Total_Death']].loc[25:]
+print(flood)
+
+Year = df_death['Year'].loc[25:]
+Drought = df_death['Number of deaths from drought'].loc[25:]
+Earthquake = df_death['Number of deaths from earthquakes'].loc[25:]
+Disaster = df_death['Number of deaths from disasters'].loc[25:]
+Volcanic = df_death['Number of deaths from volcanic activity'].loc[25:]
+Flood = df_death['Number of deaths from floods'].loc[25:]
+Storm = df_death['Number of deaths from storms'].loc[25:]
+Wildfire = df_death['Number of deaths from wildfires'].loc[25:]
+Ex_temp = df_death['Number of deaths from extreme temperatures'].loc[25:]
+Totla_Death = df_death['Total_Death'].loc[25:]
+print(Storm)
 
 
-Year = df_death['Year']
-Drought = df_death['Number of deaths from drought']
-Earthquake = df_death['Number of deaths from earthquakes']
-Disaster = df_death['Number of deaths from disasters']
-Volcanic = df_death['Number of deaths from volcanic activity']
-Flood = df_death['Number of deaths from floods']
-Storm = df_death['Number of deaths from storms']
-Wildfire = df_death['Number of deaths from wildfires']
-Ex_temp = df_death['Number of deaths from extreme temperatures']
-Totla_Death = df_death['Total_Death']
 
+year_ems = df_WorEms[['Year']].loc[25:]
+total_ems = df_WorEms[['Total_Emission']].loc[25:]
 
+Year_Ems = df_WorEms['Year'].loc[25:]
+Total_Ems = df_WorEms['Total_Emission'].loc[25:]
 
-year_ems = df_WorEms[['Year']]
-total_ems = df_WorEms[['Total_Emission']]
-
-Year_Ems = df_WorEms['Year']
-Total_Ems = df_WorEms['Total_Emission']
-
-
-## 재해로 인한 사망자 수는 줄어드는데 재해로 인한 피해는 더 크다?
 
 
 
 ## 피어슨 상관계수로 상관성 파악하기
-# -0.01 - 선형관계 모호함
+# -0.24 - 약한 음의 선형관계
 print(np.corrcoef(Totla_Death, Total_Ems))
-# 0.11 - 선형관계 모호함
+# 0.42 - 양의 선형관계
 print(np.corrcoef(Drought, Total_Ems))
-# 0.06 - 선형관계 모호함
+# 0.29 - 약한 양의 선형관계
 print(np.corrcoef(Earthquake, Total_Ems))
-# 0.07 - 선형관계 모호함
+# 0.57 - 양의 선형관계
 print(np.corrcoef(Volcanic, Total_Ems))
-# -0.26 - 약한 음의 선형관계
+# 0.10 - 약한 양의 선형관계 ** 음에서 양으로 바뀜
 print(np.corrcoef(Flood, Total_Ems))
-# -0.13 - 선형관계 모호함
+# 0.45 - 양의 선형관계
 print(np.corrcoef(Storm, Total_Ems))
-# 0.14 - 선형관계 모호함
+# 0.67 - 양의 선형관계
 print(np.corrcoef(Wildfire, Total_Ems))
-# 0.06 - 선형관계 모호함
+# -0.26 - 음의 선형관계 ** 양에서 음으로 바뀜
 print(np.corrcoef(Ex_temp, Total_Ems))
 
 

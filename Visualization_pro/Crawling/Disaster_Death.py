@@ -26,7 +26,7 @@ print(df_death)
 df_death.loc[:, "Total_Death"] = df_death.loc[:, 'Number of deaths from drought':'Number of deaths from extreme temperatures'].sum(axis = 1)
 # print(df_death)
 
-df_death.to_csv("../ANALYSIS/Disaster_Death.csv")
+df_death.to_csv("../CSV/Disaster_Death.csv")
 
 '''
 ## 각 년도별 합계 구하기

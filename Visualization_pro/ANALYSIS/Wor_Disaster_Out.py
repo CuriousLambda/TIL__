@@ -2,9 +2,14 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+##### 재해별 사망자 수 이상값 확인을 위한 BoxPlot #####
+
+
+
 ## csv 파일 불러오기
-df_death = pd.read_csv('./Disaster_Death.csv')
-df_WorEms = pd.read_csv('./World-Carbon-Emission.csv')
+df_death = pd.read_csv('../CSV/Disaster_Death.csv')
+df_WorEms = pd.read_csv('../CSV/World-Carbon-Emission.csv')
 
 
 
@@ -56,7 +61,7 @@ Total_Ems = df_WorEms['Total_Emission']
 
 
 
-fig = plt.figure(figsize=(24, 10))
+fig = plt.figure(figsize=(20, 10))
 plt.rcParams["font.family"] = "Malgun Gothic"
 
 

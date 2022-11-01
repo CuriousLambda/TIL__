@@ -27,4 +27,4 @@ df_Ems.loc[:, "Total_Emission"] = df_Ems.loc[:, 'Unnamed: 1':'Unnamed: 221'].sum
 
 print(df_Ems)
 
-df_Ems.to_csv("../ANALYSIS/World-Carbon-Emission.csv")
+df_Ems.to_csv("../CSV/World-Carbon-Emission.csv")

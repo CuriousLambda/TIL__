@@ -6,9 +6,13 @@ import matplotlib.pyplot as plt
 
 
 
+##### (1990 ~ 2019) 계절별 평균 기온 변화와 우리나라 탄소배출량 현황 #####
+
+
+
 ## csv 파일 불러오기
-df_ems = pd.read_csv('./Kor_emission.csv')
-df_temp = pd.read_csv('./Kor_Temp.csv')[17:47]
+df_ems = pd.read_csv('../CSV/Kor_emission.csv')
+df_temp = pd.read_csv('../CSV/Kor_Temp.csv')[17:47]
 
 ## csv파일 컬럼, 데이터타입 등 정보확인
 df_ems.info()

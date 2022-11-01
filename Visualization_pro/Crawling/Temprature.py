@@ -135,4 +135,4 @@ df = pd.DataFrame(data)
 df.set_index('year', inplace=True)
 print(df)
 
-df.to_csv("./Visualization_pro/ANALYSIS/Kor_Temp.csv")
+df.to_csv("./Visualization_pro/CSV/Kor_Temp.csv")

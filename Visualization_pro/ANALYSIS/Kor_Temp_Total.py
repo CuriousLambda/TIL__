@@ -6,9 +6,13 @@ import matplotlib.pyplot as plt
 
 
 
+##### (1990 ~ 2019) 우리나라 총 탄소배출량과 평균 기온 관계 #####
+
+
+
 ## csv 파일 불러오기
-df_ems = pd.read_csv('./Kor_emission.csv')
-df_temp = pd.read_csv('./Kor_Temp.csv')[17:47]
+df_ems = pd.read_csv('../CSV/Kor_emission.csv')
+df_temp = pd.read_csv('../CSV/Kor_Temp.csv')[17:47]
 
 ## csv파일 컬럼, 데이터타입 등 정보확인
 df_ems.info()
@@ -58,7 +62,7 @@ LULUCF_Ems = df_ems['lulu_ems']
 Waste_Ems = df_ems['waste_ems']
 Ems_Incdec = df_ems['ems_incdec']
 
-
+print(year_ems)
 
 ## 피어슨 상관계수로 상관성 파악하기
 
@@ -75,7 +79,7 @@ print(np.corrcoef(Winter_Temp, Total_Ems))
 
 
 
-fig = plt.figure(figsize=(15, 10))
+fig = plt.figure(figsize=(20, 10))
 plt.rcParams["font.family"] = "Malgun Gothic"
 
 
