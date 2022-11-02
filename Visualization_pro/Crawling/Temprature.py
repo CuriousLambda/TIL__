@@ -2,6 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
+### 연도별 전체, 봄, 여름, 가을, 겨울 평균 기온 ###
+
+
+
 ## 연도별 평균 기온( 연 전체, 봄, 여름, 가을, 겨울) 표 url
 url = "https://www.index.go.kr/strata/jsp/showStblGams3.jsp?stts_cd=140001&idx_cd=1400&freq=Y&period=1973:2021"
 resp = requests.get(url)

@@ -1,5 +1,12 @@
 import pandas as pd
-import numpy as np
+
+
+
+
+### 세계 탄소 배출량 데이터 원하는 형태로 만들기 ###
+## (* XLSX 파일 다운받음 *)
+
+
 
 
 ## csv 파일 불러오기

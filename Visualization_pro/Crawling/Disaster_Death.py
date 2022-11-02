@@ -1,5 +1,8 @@
 import pandas as pd
-import numpy as np
+
+
+### 자연재해로 인한 사망자 수 데이터 ###
+## ** CSV파일 원하는 형태로 만들기 **
 
 
 ## csv 파일 불러오기

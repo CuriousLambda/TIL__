@@ -5,6 +5,10 @@ from time import sleep
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.action_chains import ActionChains
 
+
+### 세계 탄소 배출량 데이터 ###
+## (* csv 다운받음 *)
+
 url = "https://www.gihoo.or.kr/netzero/user/sttstprfsn/nv_easyStatistics.do"
 
 service = Service("./chromedriver.exe")

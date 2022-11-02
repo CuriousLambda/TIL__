@@ -164,37 +164,6 @@ plt.title("(총 탄소배출, 겨울)", fontsize = 13)
 
 
 
-# ax01.plot(year, spring, color = 'violet', marker = 'o')
-# ax01.plot(year, summer, color = 'limegreen', marker = 'o')
-# ax01.plot(year, fall, color = 'brown', marker = 'o')
-# ax01.plot(year, winter, color = 'dodgerblue', marker = 'o')
-
-# plt.title("계절별 평균 기온 변화", fontsize = 20)
-
-
-
-
-
-# ax02 = fig.add_subplot(2, 2, 2)
-
-# ax02.axhline(avg_mean, color = "mediumspringgreen", linewidth = "5")
-# ax02.plot(year, avg, color = "red", marker = 'o')
-# plt.title("연도별 평균 기온변화", fontsize = 20)
-
-
-
-# line = np.polyfit(Avg_Temp, Total_Ems, 1)
-# p = np.poly1d(line)
-# print(line)
-
-# ax03 = fig.add_subplot(2, 2, 4)
-# ax03.scatter(Avg_Temp, Total_Ems)
-# ax03.plot(Avg_Temp, p(Avg_Temp), "m:*")
-# ax03.set_yticks(list(range(200, 900, 100)))
-# ax03.set_ylim(150, 800)
-# plt.title("평균 기온과 총 탄소 배출량 추세선", fontsize = 20)
-
-
 
 
 

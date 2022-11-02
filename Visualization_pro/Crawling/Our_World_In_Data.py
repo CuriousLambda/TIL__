@@ -1,8 +1,12 @@
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 from time import sleep
-import requests
 from bs4 import BeautifulSoup
+
+
+### XXXXX ####
+
+
 
 url = "https://ourworldindata.org/natural-disasters"
 

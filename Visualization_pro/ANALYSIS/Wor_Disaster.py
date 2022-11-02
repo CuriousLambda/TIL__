@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -113,15 +112,6 @@ plt.legend("extreme Temp")
 plt.xlabel("년도")
 plt.ylabel("사망자 수")
 plt.title("폭염/한파로 인한 사망자 수", fontsize = 15)
-
-
-
-# ax02 = fig.add_subplot(1, 2, 2)
-
-# ax02.plot(year, total_ems , color = "red", marker = 'o')
-# plt.xlabel("년도")
-# plt.ylabel("총 탄소 배출량")
-# plt.title("연도별 세계 총 탄소배출량", fontsize = 20)
 
 
 
