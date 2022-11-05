@@ -130,5 +130,5 @@ plt.title("총 재해사망자 수 이상값", fontsize = 20)
 
 
 
-
+plt.savefig('../Graph_Img/world_disa_outliers_withEmis.png', dpi = 100)
 plt.show()

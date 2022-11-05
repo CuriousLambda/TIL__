@@ -170,4 +170,6 @@ plt.ylabel('사망자 수')
 plt.title("(총 탄소배출, 한파/폭염 사망자)", fontsize = 15)
 
 
+
+plt.savefig('../Graph_Img/world_disa_death_emiss.png', dpi = 100)
 plt.show()

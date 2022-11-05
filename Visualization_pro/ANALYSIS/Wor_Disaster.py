@@ -115,5 +115,5 @@ plt.title("폭염/한파로 인한 사망자 수", fontsize = 15)
 
 
 
-
+plt.savefig('../Graph_Img/world_disaster_death_summary.png', dpi = 100)
 plt.show()

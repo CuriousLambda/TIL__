@@ -85,5 +85,5 @@ ax02.boxplot(avg)
 plt.title("평균 기온 박스플롯", fontsize = 20)
 
 
-
+plt.savefig('../Graph_Img/korea_temp_outlier_check.png', dpi = 100)
 plt.show()

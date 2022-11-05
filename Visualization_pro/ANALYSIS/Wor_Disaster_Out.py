@@ -119,5 +119,5 @@ ax07.boxplot(ex_temp)
 plt.title("폭염/한파 사망자 박스플롯", fontsize = 15)
 
 
-
+plt.savefig('../Graph_Img/world_disa_outliers_check.png', dpi = 100)
 plt.show()

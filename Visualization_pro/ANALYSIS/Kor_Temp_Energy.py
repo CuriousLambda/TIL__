@@ -162,5 +162,5 @@ plt.ylabel('겨울 평균 기온')
 plt.title("(에너지 탄소배출, 겨울)", fontsize = 13)
 
 
-
+plt.savefig('../Graph_Img/korea_temp_energy_emiss.png', dpi = 100)
 plt.show()
