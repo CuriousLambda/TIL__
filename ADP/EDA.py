@@ -93,7 +93,7 @@ group = iris.groupby('species').size()
 ## 2-10-1. 이상치 탐색 , 그래프로 확인 - botxplot
 def boxplot_iris(feature_names, dataset):
     i = 1
-    plt.figure(figsize=(11,9))
+    plt.figure(figsize=(11,11))
 
     for col in feature_names:
         plt.subplot(2,2,i)
